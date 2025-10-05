@@ -210,9 +210,9 @@ export default function ImageGenerator({ user }) {
     setError("");
 
     try {
-      // ⬇️ UPDATED: Changed the endpoint to call the new DeepAI route
+      // ✅ UPDATED: Changed the endpoint to call your new Freepik route
       const res = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/deepai/generate`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/freepik/generate`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -226,7 +226,7 @@ export default function ImageGenerator({ user }) {
         setGeneratedImage(data.outputUrl);
       } else {
         setError(data.error || "Failed to generate image");
-        console.error("API Error:", data); // More generic error log
+        console.error("API Error:", data);
       }
     } catch (err) {
       console.error("Network Error:", err);
